@@ -381,6 +381,7 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
             valueListenable: _isFocused,
             builder: (context, isFocused, w) {
               return InputDecorator(
+                key: UniqueKey(),
                 baseStyle: widget.dropdownDecoratorProps.baseStyle,
                 textAlign: widget.dropdownDecoratorProps.textAlign,
                 textAlignVertical: widget.dropdownDecoratorProps.textAlignVertical,
@@ -436,6 +437,8 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
         .applyDefaults(Theme.of(state.context).inputDecorationTheme)
         .copyWith(
           enabled: widget.enabled,
+          hintText: widget.dropdownDecoratorProps.dropdownSearchDecoration?.hintText,
+          hintStyle: widget.dropdownDecoratorProps.dropdownSearchDecoration?.hintStyle,
           suffixIcon: _manageSuffixIcons(),
           errorText: state.errorText,
         );
