@@ -364,6 +364,7 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
 
   Widget _formFieldSingleSelection() {
     return FormField<T>(
+      key: UniqueKey(),
       enabled: widget.enabled,
       onSaved: widget.onSaved,
       validator: widget.validator,
@@ -378,6 +379,7 @@ class DropdownSearchState<T> extends State<DropdownSearch<T>> {
           });
         }
         return ValueListenableBuilder<bool>(
+            key: UniqueKey(),
             valueListenable: _isFocused,
             builder: (context, isFocused, w) {
               return InputDecorator(
